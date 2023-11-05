@@ -1,0 +1,16 @@
+html
+    head 
+        title Login
+    body
+        H3 Login
+        nav 
+            a(href='/signup') Sign up 
+        br
+        div   
+            form(action = "/login" method = "POST")
+                input(name = "username" type = "text" required placeholder = "Name")
+                input(name = "password" type = "password" required placeholder = "Password")
+                button(type = "Submit") Log in
+
+            if(message)
+                h4 #{message}

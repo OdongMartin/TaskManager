@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Task Manager
+        
+  body
+    header
+      h1 Task Manager
+      h2 You are logged in as #{user}
+      nav
+        a(href='/tasks') Task List 
+        br
+        a(href='/tasks/create') Create Task
+        br 
+        a(href='/logout') Log Out 
+    main
+      block content
+    footer
+      p Copyright © 2023 Task Manager App
