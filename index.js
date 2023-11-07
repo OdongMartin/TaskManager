@@ -145,15 +145,17 @@ function checkLoggedIn(req, res, next){
 app.get('/login', checkLoggedIn, function(req, res) {
     res.render('login');
     //log all database users and their info
-    /*userInfo.find(function(err, response) {
+    userInfo.find(function(err, response) {
         console.log(response);
-    });*/
+    });
 });
 
-app.post('/login', passport.authenticate('local', {
+app.post('/login', 
+passport.authenticate('local', {
     successRedirect: '/tasks',
     failureRedirect: '/login',
 }));
+
 
 //logout
 app.get('/logout', function(req, res){

@@ -20,5 +20,9 @@ block content
                 form(action=`/tasks/edit/${task._id}`, method='GET')
                     button(type='submit') Edit
             td  
+                form(action=`/tasks/complete/${task._id}`, method='POST')
+                    button(type='submit') Completed
+
+            td  
                 form(action=`/tasks/delete/${task._id}`, method='POST')
                     button(type='submit') Delete

@@ -4,16 +4,16 @@ block content
   h1 Edit Task
   form(action=`/tasks/edit/${task._id}`, method='POST')
     label(for='editTitle') Task Title:
-    input(type='text', name='editTitle', id='editTitle', value= `${task.title}`)
+    input(type='text', name='editTitle', id='editTitle', value= `${task.title}`, required)
 
     label(for='editDescription') Task Description:
-    input(type='text', name='editDescription', id='editDescription', value= `${task.description}`)
+    input(type='text', name='editDescription', id='editDescription', value= `${task.description}`, required)
 
     label(for='editDueDate') Due Date:
-    input(type='date', name='editDueDate', id='editDueDate', value= `${task.dueDate}`)
+    input(type='date', name='editDueDate', id='editDueDate', value= `${task.dueDate}`, required)
 
     label(for='editStatus') Status:
-    select(name='editStatus', id='editStatus', value= `${task.status}`)
+    select(name='editStatus', id='editStatus', value= `${task.status}`, required)
       option(value='in progress') In Progress
       option(value='completed') Completed
 

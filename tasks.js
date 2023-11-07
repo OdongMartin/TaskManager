@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+//date not earlier than today
+const moment = require('moment');
 
 var taskSchema = mongoose.Schema({
     title : String,
@@ -30,6 +32,14 @@ router.get('/create', function(req, res) {
 });
 
 router.post('/create', function(req, res) {
+    const currentDate = moment();
+    const dueDate = moment(req.body.dueDate, 'YYYY-MM-DD');
+
+    // Check if dueDate is earlier than the current date
+    if (dueDate.isBefore(currentDate, 'day')) {
+        return res.status(400).send('Due date cannot be earlier than the current date');
+    }
+
     var newTask = new task({
         //not yet worked upon. save each dpcumante with username
         username : currentUser,
@@ -56,7 +66,9 @@ router.post('/create', function(req, res) {
 router.get('/:userId', function(req, res) {
     currentUser = req.params.userId;
 
-    task.find({username : currentUser}, function(err, allTasks) {
+    task.find({username : currentUser})
+    .sort({dueDate : 1}) // sort due dates in acsending order
+    .exec(function(err, allTasks) {
         if (err) {
             res.status(500).send('Internal Server Error');
             return;
@@ -89,6 +101,13 @@ router.get('/edit/:taskId', function(req, res) {
     
 });
 router.post('/edit/:taskId', function(req, res) {
+    const currentDate = moment();
+    const editDueDate = moment(req.body.editDueDate, 'YYYY-MM-DD');
+
+    // Check if dueDate is earlier than the current date
+    if (editDueDate.isBefore(currentDate, 'day')) {
+        return res.status(400).send('Due date cannot be earlier than the current date');
+    }
     task.findByIdAndUpdate(req.params.taskId, {
         title : req.body.editTitle,
         description : req.body.editDescription,
@@ -124,6 +143,25 @@ router.post('/delete/:taskId', function(req, res){
 
         res.redirect('/tasks/' + req.user.username);
     });
-  });
+});
+
+//tasl completed
+router.post('/complete/:taskId', function(req, res){  
+    task.findByIdAndUpdate(req.params.taskId, {
+        status : "Completed"
+    }, function(err, completedTask) {
+        if (err) {
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+  
+        if (!completedTask) {
+            res.status(404).send('Task not found');
+            return;
+        }
+
+        res.redirect('/tasks/' + req.user.username);
+    });
+});
 
 module.exports = router;
