@@ -88,6 +88,10 @@ app.get('/signup', function(req, res) {
 });
 
 app.post('/signup', function(req, res) {
+    // Check if the username only contains lowercase letters and no spaces
+    if (!/^[a-zA-Z0-9]+$/.test(req.body.id) || req.body.id.includes(' ')) {
+        return res.render('signup', { message: 'Invalid username format' });
+    }
     //check if user already exists in database
     userInfo.findOne({username : req.body.id}, function (err, existingUser){
         if (err) {
@@ -101,7 +105,7 @@ app.post('/signup', function(req, res) {
         else {
             if (req.body.password === req.body.confirmPassword){
                 var newUser = new userInfo ({
-                    username : req.body.id,
+                    username : req.body.id.toLowerCase(),
                     password : req.body.password
                 });
 
@@ -150,6 +154,8 @@ app.get('/login', checkLoggedIn, function(req, res) {
 });
 
 app.post('/login', function(req, res, next){
+    req.body.username = req.body.username.toLowerCase();
+
     passport.authenticate('local', function(err, user, info) {
         if (err) {
             return next(err);
@@ -207,7 +213,7 @@ app.post('/changePassword', function(req, res) {
         if (err) {
             return res.status(500).send('Internal Server Error');
         }
-        return res.render('change-password', { message: "Password Changed" });
+        return res.render('change-password', { message: "Password Changed. Please Log in" });
     });
     //works as above
     /*if (req.body.newPassword === req.body.confirmPassword) {
