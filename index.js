@@ -150,11 +150,30 @@ app.get('/login', checkLoggedIn, function(req, res) {
     });
 });
 
-app.post('/login', 
-passport.authenticate('local', {
+app.post('/login', function(req, res, next){
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.render('login', {message : "Enter correct details or just sign up"});
+        }
+
+        //manually establishing user sesssion
+        req.logIn(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            return res.redirect('/tasks');
+        });
+
+    })(req, res, next);
+}
+//passport js standard user session approach
+/*passport.authenticate('local', {
     successRedirect: '/tasks',
     failureRedirect: '/login',
-}));
+})*/);
 
 
 //logout
