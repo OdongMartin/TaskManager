@@ -11,7 +11,6 @@ const upload = multer();
 app.use(upload.array());
 
 const mongoose = require('mongoose');
-//const passportLocalMongoose = require('passport-local-mongoose');
 mongoose.connect('mongodb://127.0.0.1/my_db');
 
 var userDetails = mongoose.Schema({
@@ -192,6 +191,37 @@ app.get('/logout', function(req, res){
         console.log ("removed all data");
     });
 });*/
+
+//change password
+app.get('/changePassword', function(req, res) {
+    res.render('change-password', {user : req.user.username});
+})
+app.post('/changePassword', function(req, res) {
+    if (req.body.oldPassword !== req.user.password){
+        res.render('change-password', {message : "Please enter correct old password"});
+    }
+
+    req.user.password = req.body.newPassword;
+    // Save the updated user object to the database
+    req.user.save(function (err) {
+        if (err) {
+            return res.status(500).send('Internal Server Error');
+        }
+        return res.render('change-password', { message: "Password Changed" });
+    });
+    //works as above
+    /*if (req.body.newPassword === req.body.confirmPassword) {
+        userInfo.findOneAndUpdate({username : req.user.username}, {password : req.body.newPassword}, function(err, editedPassword) {
+            if (err) {
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+            } else {
+                res.render ('change-password', {message : "Password Changed"});
+            }
+        });
+    }*/
+});
 
 //use tasks router
 const tasks = require('./tasks.js');
