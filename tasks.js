@@ -4,6 +4,30 @@ const router = express.Router();
 //date not earlier than today
 const moment = require('moment');
 
+//firebase notfis
+/*const admin = require('firebase-admin');
+const serviceAccount = require('task-manager-1e8b0-firebase-adminsdk-xd6yi-85d4be5e93.json');
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+});
+const message = {
+    notification: {
+        title: 'Task Due Soon',
+        body: 'Your task is due soon. Take action!',
+    },
+    token: 'DEVICE_TOKEN_HERE', // Replace with the recipient's device token
+};
+// Send a message to the device
+admin
+    .messaging()
+    .send(message)
+    .then((response) => {
+        console.log('Notification sent:', response);
+    })
+    .catch((error) => {
+        console.error('Error sending notification:', error);
+    });*/
+
 var taskSchema = mongoose.Schema({
     title : String,
     description : String,
