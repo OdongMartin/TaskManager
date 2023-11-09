@@ -1,7 +1,7 @@
 # TaskManager
 Task Manager App
 
-Task Manager is a web application that allows users to create, manage, edit, delete and organize their tasks. This application provides a simple and intuitive way to keep track of tasks, set due dates, and monitor task status.
+Task Manager is a web application that allows users to sign up, log in, create, manage, edit, delete and organize their tasks. This application provides a simple and intuitive way to keep track of tasks, set due dates, and monitor task status.
 
 Table of Contents
 
