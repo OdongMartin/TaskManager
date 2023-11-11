@@ -198,6 +198,10 @@ app.post('/login', function(req, res, next){
     failureRedirect: '/login',
 })*/);
 
+app.get('/', function(req, res) {
+    res.redirect('/login');
+});
+
 
 //logout
 app.get('/logout', function(req, res){
