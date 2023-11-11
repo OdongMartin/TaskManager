@@ -1,3 +1,7 @@
+//host things
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+
 const express = require('express');
 const app = express();
 
@@ -11,7 +15,21 @@ const upload = multer();
 app.use(upload.array());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/my_db');
+
+//host things continued
+mongoose.set('strictQuery', false);
+const connectDB = async function() {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
+}
+
+
+//mongoose.connect('mongodb://127.0.0.1/my_db');
 
 var userDetails = mongoose.Schema({
     username: String,
@@ -239,5 +257,11 @@ app.get('*', function(req, res) {
 });
 
 
-app.listen(3000);
+//connect to database
+connectDB().then(function() {
+    app.listen(PORT, function() {
+        console.log(`listening on port ${PORT}`);
+    })
+})
+//app.listen(3000);
 
