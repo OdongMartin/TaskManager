@@ -2,6 +2,8 @@
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
+const path = require('path');
+
 const express = require('express');
 const app = express();
 
@@ -42,8 +44,9 @@ var userInfo = mongoose.model('userInfo', userDetails);
 module.exports = userInfo;
 
 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.set('views', './views');
+app.use(express.static(path.join(__dirname, 'public')))
 
 //authentication using passportjs
 const passport = require('passport');

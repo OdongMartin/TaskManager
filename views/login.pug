@@ -1,16 +1,25 @@
 html
-    head 
-        title Login
-    body
-        H3 Login
-        nav 
-            a(href='/signup') Sign up 
-        br
-        div   
-            form(action = "/login" method = "POST")
-                input(name = "username" type = "text" required placeholder = "Name")
-                input(name = "password" type = "password" required placeholder = "Password")
-                button(type = "Submit") Log in
+  head
+    title Login
+    link(rel="stylesheet", href="styles.css")
+  body.bg-blue-300.m-6
+    div.flex.flex-col.items-center.justify-center.h-screen
+      div.bg-blue-300.my-20.border.rounded-3xl.bg-blue-500.p-6
 
-            if(message)
-                h4 #{message}
+        div.flex.justify-center.uppercase.font-bold.text-white.text-xl
+          h3 Login
+        br
+        div
+          form(action="/login" method="POST")
+            input(name="username" type="text" required placeholder="Name" class="mb-3 p-2 rounded")
+            br
+            input(name="password" type="password" required placeholder="Password" class="mb-3 p-2 rounded")
+            br
+            div.flex.justify-center.mb-5
+                button(type="Submit" class="bg-green-600 text-white px-4 py-2 rounded-full border border-blue-900 hover:bg-green-800") Log in
+        
+        nav.flex.justify-center
+            a(href='/signup' class=" bg-green-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-green-800") Sign up
+        br
+        if(message)
+            h4.text-white #{message}
