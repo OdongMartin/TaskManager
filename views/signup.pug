@@ -1,24 +1,27 @@
 html
     head 
         title Sign up
-    body
-        H3 Sign up
-        nav 
-            a(href='/login') Login 
-        br
-        div
-            form(action = "/signup" method = "POST")
-                div
-                    input(name = "id" type = "text" required placeholder = "Name")
-                br
-                div    
-                    input(name = "password" type = "password" required placeholder = "Password")
-                br
-                div
-                    input(name = "confirmPassword" type = "password" required placeholder = "Confirm Password")
-                br
-                div
-                    button(type = "Submit") Sign up
+        link(rel="stylesheet", href="styles.css")
+    body.bg-blue-300.m-6
+        div.flex.flex-col.items-center.justify-center.h-screen
+            div.bg-blue-300.my-20.border.rounded-3xl.bg-blue-500.p-6
 
-            if(message)
-                h4 #{message}
+                div.flex.justify-center.uppercase.font-bold.text-white.text-xl
+                    H3 Sign up
+                br
+                div
+                    form(action = "/signup" method = "POST")
+                        input(name = "id" type = "text" required placeholder = "Name" class="mb-3 p-2 rounded")
+                        br 
+                        input(name = "password" type = "password" required placeholder = "Password" class="mb-3 p-2 rounded")
+                        br
+                        input(name = "confirmPassword" type = "password" required placeholder = "Confirm Password" class="mb-3 p-2 rounded")
+                        br
+                        div.flex.justify-center.mb-5
+                            button(type = "Submit" class="bg-green-600 text-white px-4 py-2 rounded-full border border-blue-900 hover:bg-green-800") Sign up
+
+                nav.flex.justify-center
+                    a(href='/login' class=" bg-green-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-green-800") Login 
+                br
+                if(message)
+                    h4 #{message}
