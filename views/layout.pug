@@ -2,19 +2,21 @@ doctype html
 html
   head
     title Task Manager
-    link(rel="stylesheet", href="styles.css")
-  body
+    //link(rel="stylesheet", href="/public/styles.css")
+    style 
+      include ../public/styles.css
+  body.body
     header
       h1 Task Manager
       h2.text-6xl You are logged in as #{user}
-      nav
-        a(href='/tasks') Task List 
-        br
-        a(href='/tasks/create') Create Task
-        br
-        a(href='/changePassword') Change Password
-        br 
-        a(href='/logout') Log Out 
+    nav
+      a(href='/tasks') Task List 
+      br
+      a(href='/tasks/create') Create Task
+      br
+      a(href='/changePassword') Change Password
+      br 
+      a(href='/logout') Log Out 
     main
       block content
     footer
