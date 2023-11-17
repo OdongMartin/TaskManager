@@ -11,11 +11,11 @@ html
                 br
                 div
                     form(action = "/signup" method = "POST")
-                        input(name = "id" type = "text" required placeholder = "Name" class="mb-3 p-2 rounded")
+                        input(name = "id" type = "text" required placeholder = "Name" class="mb-3 p-2 rounded-full")
                         br 
-                        input(name = "password" type = "password" required placeholder = "Password" class="mb-3 p-2 rounded")
+                        input(name = "password" type = "password" required placeholder = "Password" class="mb-3 p-2 rounded-full")
                         br
-                        input(name = "confirmPassword" type = "password" required placeholder = "Confirm Password" class="mb-3 p-2 rounded")
+                        input(name = "confirmPassword" type = "password" required placeholder = "Confirm Password" class="mb-3 p-2 rounded-full")
                         br
                         div.flex.justify-center.mb-5
                             button(type = "Submit" class="bg-green-600 text-white px-4 py-2 rounded-full border border-blue-900 hover:bg-green-800") Sign up
@@ -24,4 +24,4 @@ html
                     a(href='/login' class=" bg-green-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-green-800") Login 
                 br
                 if(message)
-                    h4 #{message}
+                    h4.text-white #{message}

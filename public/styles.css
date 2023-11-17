@@ -485,9 +485,6 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.m-6 {
-  margin: 1.5rem;
-}
 .my-20 {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -521,9 +518,6 @@ video {
 }
 .justify-center {
   justify-content: center;
-}
-.rounded {
-  border-radius: 0.25rem;
 }
 .rounded-3xl {
   border-radius: 1.5rem;
@@ -588,9 +582,11 @@ video {
 }
 
 .body {
-  margin: 1.5rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #bae6fd var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(186 230 253 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #4f46e5 var(--tw-gradient-to-position);
 }
 
 .hover\:bg-green-800:hover {

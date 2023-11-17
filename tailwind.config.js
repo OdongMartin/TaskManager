@@ -3,7 +3,13 @@ module.exports = {
     './views/*.{pug, html}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      extend: {
+        //backgroundImage: {
+        //  'bg-image': "url('public/img/bg-image.jpg')"
+        //},
+      },
+    },
   },
   plugins: [],
 }
