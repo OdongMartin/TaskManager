@@ -1,28 +1,34 @@
-extends layout
+<!--extends layout-->
+doctype html
+html
+    head
+        //link(rel="stylesheet", href="/public/styles.css")
+        style 
+            include ../public/styles.css
+<!--block content-->
+    body
+        main
+            span Task List
+            table.table-auto.border
+                tr.border
+                    th.border Title
+                    th.border Description
+                    th.border Due Date
+                    th.border Status
+                    th Action
+                each task in tasks
+                    tr.border
+                        td.border #{task.title} 
+                        td.border #{task.description} 
+                        td.border #{task.dueDate} 
+                        td.border #{task.status}
+                        td.border 
+                            form(action=`/tasks/edit/${task._id}`, method='GET')
+                                button(type='submit') Edit
+                        td.border  
+                            form(action=`/tasks/complete/${task._id}`, method='POST')
+                                button(type='submit') Completed
 
-block content
-    h2 Task List
-    table
-        tr
-            th Title
-            th Description
-            th Due Date
-            th Status
-            th Action
-            th Action
-        each task in tasks
-            tr
-                td |#{task.title} 
-                td |#{task.description} 
-                td |#{task.dueDate} 
-                td |#{task.status}
-                td 
-                    form(action=`/tasks/edit/${task._id}`, method='GET')
-                        button(type='submit') Edit
-                td  
-                    form(action=`/tasks/complete/${task._id}`, method='POST')
-                        button(type='submit') Completed
-
-                td  
-                    form(action=`/tasks/delete/${task._id}`, method='POST')
-                        button(type='submit') Delete
+                        td.border  
+                            form(action=`/tasks/delete/${task._id}`, method='POST')
+                                button(type='submit') Delete

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .body {
-    @apply bg-gradient-to-r from-sky-200 to-indigo-600;
+    @apply bg-gradient-to-bl from-sky-100 to-indigo-900;
 }

@@ -5,18 +5,22 @@ html
     //link(rel="stylesheet", href="/public/styles.css")
     style 
       include ../public/styles.css
-  body.body
-    header
-      h1 Task Manager
-      h2.text-6xl You are logged in as #{user}
-    nav
-      a(href='/tasks') Task List 
-      br
-      a(href='/tasks/create') Create Task
-      br
-      a(href='/changePassword') Change Password
-      br 
-      a(href='/logout') Log Out 
+  body
+    div
+      header
+        div  
+          span.uppercase #{user}
+      div.flex.justify-end
+        a(href='/logout') Log Out 
+    div
+      nav
+        a(href='/tasks') Task List 
+        br
+        a(href='/tasks/create') Create Task
+        br
+        a(href='/changePassword' class="flex justify-") Change Password
+
+
     main
       block content
     footer
