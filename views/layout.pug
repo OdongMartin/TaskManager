@@ -5,14 +5,14 @@ html
     //link(rel="stylesheet", href="/public/styles.css")
     style 
       include ../public/styles.css
-  body.p-6.bg-sky-100
+  body.p-6.bg-indigo-300
     div
       header
         div
           div.flex.justify-between.mb-3.items-center
             span.font-bold.text-3xl TASK MANAGER
             div
-              span.uppercase #{user}
+              span.uppercase.font-bold #{user}
               <svg class='w-8 inline-block ml-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -22,7 +22,7 @@ html
     div.grid.grid-cols-12.gap-4
       div.col-span-2.border-r.border-red-200
         nav
-          div.flex.items-center.border-r-4.border-red-400
+          div.flex.items-center.hover
             <svg class='w-5 inline-block mr-2' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>

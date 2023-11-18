@@ -1,20 +1,31 @@
 extends layout
 
 block content
-  h1 Create Task
-  form(action='/tasks/create', method='POST')
-    label(for='title') Task Title:
-    input(type='text', name='title', id='title', required)
+  h1.font-bold.text-xl Create Task
+  div
+    form(action='/tasks/create', method='POST')
+      div
+        div
+          label(for='title') Task Title:
+        div
+          input(type='text', name='title', id='title', maxlength="15",required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white w-96")
+      div
+        div
+          label(for='description') Task Description:
+        div
+          textarea(cols='50' rows='5' type='text', name='description', id='description', maxlength="55", required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white")
+      div
+        div
+          label(for='dueDate') Due Date:
+        div
+          input(type='date', name='dueDate', id='dueDate', required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white")
+      div
+        div
+          label(for='status') Status:
+        div
+          select(name='status', id='status', required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white")
+            option(value='in progress') In Progress
+            option(value='completed') Completed
 
-    label(for='description') Task Description:
-    input(type='text', name='description', id='description', required)
-
-    label(for='dueDate') Due Date:
-    input(type='date', name='dueDate', id='dueDate', required)
-
-    label(for='status') Status:
-    select(name='status', id='status', required)
-      option(value='in progress') In Progress
-      option(value='completed') Completed
-
-    button(type='submit') Create Task
+      div
+        button(type='submit' class="bg-green-600 text-white px-4 py-2 rounded-3xl border border-blue-900 hover:bg-green-800") Create Task

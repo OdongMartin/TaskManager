@@ -1,20 +1,30 @@
 extends layout
 
 block content
-  h1 Edit Task
-  form(action=`/tasks/edit/${task._id}`, method='POST')
-    label(for='editTitle') Task Title:
-    input(type='text', name='editTitle', id='editTitle', value= `${task.title}`, required)
-
-    label(for='editDescription') Task Description:
-    input(type='text', name='editDescription', id='editDescription', value= `${task.description}`, required)
-
-    label(for='editDueDate') Due Date:
-    input(type='date', name='editDueDate', id='editDueDate', value= `${task.dueDate}`, required)
-
-    label(for='editStatus') Status:
-    select(name='editStatus', id='editStatus', value= `${task.status}`, required)
-      option(value='in progress') In Progress
-      option(value='completed') Completed
-
-    button(type='submit') Edit Task
+  h1.font-bold.text-xl Edit Task
+  div.flex.flex-col.justify-start
+    form(action=`/tasks/edit/${task._id}`, method='POST')
+      div
+        div
+        label(for='editTitle') Task Title:
+        div
+          input(type='text', name='editTitle', id='editTitle', value= `${task.title}`, maxlength="15", required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white w-96")
+      div
+        div
+          label(for='editDescription') Task Description:
+        div
+          textarea(cols='50' rows='5' type='text', name='editDescription', id='editDescription', maxlength="55", required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white") #{task.description}
+      div
+        div
+          label(for='editDueDate') Due Date:
+        div
+          input(type='date', name='editDueDate', id='editDueDate', value= `${task.dueDate}`, required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white")
+      div
+        div
+          label(for='editStatus') Status:
+        div
+          select(name='editStatus', id='editStatus', value= `${task.status}`, required, class="mb-3 p-2 rounded-xl bg-gray-700 text-white")
+            option(value='in progress') In Progress
+            option(value='completed') Completed
+      div
+        button(type='submit' class="bg-green-600 text-white px-4 py-2 rounded-3xl border border-blue-900 hover:bg-green-800") Edit Task

@@ -1,27 +1,33 @@
 extends layout
 
 block content
-    span Task List
-    table.table-auto
-        tr.border.border-black.bg-neutral-800
-            th Title
-            th.border.border-blue-900 Description
-            th.border.border-black Due Date
-            th.border.border-black Status
-            th Action
-        each task in tasks
-            tr.bg-neutral-500
-                td.border.border-black #{task.title} 
-                td.border.border-black #{task.description} 
-                td.border.border-black #{task.dueDate} 
-                td.border.border-black #{task.status}
-                td.border.border-black 
-                    form(action=`/tasks/edit/${task._id}`, method='GET')
-                        button(type='submit') Edit
-                td.border.border-black  
-                    form(action=`/tasks/complete/${task._id}`, method='POST')
-                        button(type='submit') Completed
+    span.font-bold.text-xl Task List
+    div.rounded-xl
+        table.table-auto
+            tr.bg-neutral-700.text-white
+                th.px-2 Title
+                th.px-2 Description
+                th.px-2 Due Date
+                th.px-2 Status
+                th.px-2 Action
+                th.px-2 Finish
+                th.px-2 Remove
+            each task in tasks
+                tr.bg-neutral-400.font-semibold.border-b-2.border-black
+                    td.border-r.border-black.px-2 #{task.title} 
+                    td.border-r.border-black.px-2 #{task.description} 
+                    td.border-r.border-black.px-2 #{task.dueDate} 
+                    td.px-2 #{task.status}
+                    td.px-2
+                        form(action=`/tasks/edit/${task._id}`, method='GET')
+                            button(type='submit' class="bg-green-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-green-800") Edit
+                    td.px-2
+                        div
+                            form(action=`/tasks/complete/${task._id}`, method='POST')
+                                div
+                                    button(type='submit' class="bg-green-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-green-800") Completed
 
-                td.border.border-black 
-                    form(action=`/tasks/delete/${task._id}`, method='POST')
-                        button(type='submit') Delete
+
+                    td.px-2
+                        form(action=`/tasks/delete/${task._id}`, method='POST')
+                            button(type='submit' class="bg-red-600 text-white px-4 py-1 rounded-full cursor-pointer border border-blue-900 hover:bg-red-800") Delete
