@@ -44,11 +44,11 @@ const userInfo = require('./index.js');
 var currentUser;
 
 //delete all task data
-router.get('/delete', function(req, res) {
+/*router.get('/delete', function(req, res) {
     task.remove(function(err, response) {
         console.log ("removed all task data");
     });
-});
+});*/
 
 //create new tasks
 router.get('/create', function(req, res) {
