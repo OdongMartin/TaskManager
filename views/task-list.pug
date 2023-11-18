@@ -1,34 +1,27 @@
-<!--extends layout-->
-doctype html
-html
-    head
-        //link(rel="stylesheet", href="/public/styles.css")
-        style 
-            include ../public/styles.css
-<!--block content-->
-    body
-        main
-            span Task List
-            table.table-auto.border
-                tr.border
-                    th.border Title
-                    th.border Description
-                    th.border Due Date
-                    th.border Status
-                    th Action
-                each task in tasks
-                    tr.border
-                        td.border #{task.title} 
-                        td.border #{task.description} 
-                        td.border #{task.dueDate} 
-                        td.border #{task.status}
-                        td.border 
-                            form(action=`/tasks/edit/${task._id}`, method='GET')
-                                button(type='submit') Edit
-                        td.border  
-                            form(action=`/tasks/complete/${task._id}`, method='POST')
-                                button(type='submit') Completed
+extends layout
 
-                        td.border  
-                            form(action=`/tasks/delete/${task._id}`, method='POST')
-                                button(type='submit') Delete
+block content
+    span Task List
+    table.table-auto
+        tr.border.border-black.bg-neutral-800
+            th Title
+            th.border.border-blue-900 Description
+            th.border.border-black Due Date
+            th.border.border-black Status
+            th Action
+        each task in tasks
+            tr.bg-neutral-500
+                td.border.border-black #{task.title} 
+                td.border.border-black #{task.description} 
+                td.border.border-black #{task.dueDate} 
+                td.border.border-black #{task.status}
+                td.border.border-black 
+                    form(action=`/tasks/edit/${task._id}`, method='GET')
+                        button(type='submit') Edit
+                td.border.border-black  
+                    form(action=`/tasks/complete/${task._id}`, method='POST')
+                        button(type='submit') Completed
+
+                td.border.border-black 
+                    form(action=`/tasks/delete/${task._id}`, method='POST')
+                        button(type='submit') Delete
