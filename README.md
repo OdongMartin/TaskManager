@@ -51,7 +51,7 @@ bash
 
 Access the app in your web browser at http://localhost:3000.
 
-Usage
+### Usage
 
 User Registration and Authentication:
     Sign up with a new account or log in with an existing one.
