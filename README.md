@@ -75,7 +75,7 @@ Task Deletion:
 Task Status Update:
     Change the status of a task (e.g., from "in progress" to "completed").
 
-Contributing
+### Contributing
 
 We welcome contributions to improve the Task Manager App. If you'd like to contribute, please follow these steps:
 
