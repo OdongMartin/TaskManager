@@ -56,17 +56,17 @@ Access the app in your web browser at http://localhost:3000.
 <<<<<<< HEAD
     User Registration and Authentication:
         Sign up with a new account or log in with an existing one.
-        ![login](public\img\login.png)
+        ![login](public/img/login.png)
 
 Task Creation:
     Click "Create Task" to add a new task.
     Enter the task details, such as title, description, due date, and status.
     Click "Create Task" to save the task.
-    ![create task](public\img\create task.png)
+    ![create task](public/img/create task.png)
 
 Task Listing:
     View your task list, including title, description, due date, and status.
-    ![task list](public\img\tasks.png)
+    ![task list](public/img/tasks.png)
 =======
 User Registration and Authentication:
     Sign up with a new account or log in with an existing one.
