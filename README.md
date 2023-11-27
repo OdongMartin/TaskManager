@@ -7,11 +7,11 @@ Task Manager App
 
 ## Table of Contents
 
-Features
-Getting Started
-Usage
-Sorting and Filtering
-Contributing
+    Features
+    Getting Started
+    Usage
+    Sorting and Filtering
+    Contributing
 
 ### Features
 
