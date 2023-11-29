@@ -46,7 +46,7 @@ Start the application:
 
 bash
 
-    npm nodemon index.js
+    nodemon index.js
 
 
 Access the app in your web browser at http://localhost:3000.
