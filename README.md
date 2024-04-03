@@ -1,5 +1,5 @@
 # TaskManager
-Task Manager App.
+Task Manager App
 
 #### Video Demo: https://www.youtube.com/watch?v=du5_ZdjkSTc
 
